@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SARAS: Hindi Voice Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.27.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@capacitor/core": "https://aistudiocdn.com/@capacitor/core@^7.4.4"
+  }
+}
+</script>
+  <style>
+    :root {
+      --bg-dark-start: #0F0C29;
+      --bg-dark-mid: #302B63;
+      --bg-dark-end: #24243E;
+      --accent-glow: rgba(79, 70, 229, 0.7);
+      --glass-bg: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.1);
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, var(--bg-dark-start), var(--bg-dark-mid), var(--bg-dark-end));
+    }
+    .glassmorphism {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+    }
+    @keyframes slow-pulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 20px 5px var(--accent-glow); }
+      50% { transform: scale(1.05); box-shadow: 0 0 40px 15px var(--accent-glow); }
+    }
+    .animate-slow-pulse {
+      animation: slow-pulse 4s ease-in-out infinite;
+    }
+    @keyframes swirl {
+        0% { transform: rotate(0deg) scale(1.1); }
+        50% { transform: rotate(180deg) scale(1.0); }
+        100% { transform: rotate(360deg) scale(1.1); }
+    }
+    .swirl-animation::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: conic-gradient(from 0deg, #4f46e5, #ec4899, #8b5cf6, transparent);
+        animation: swirl 3s ease-in-out infinite;
+        mask: radial-gradient(transparent 50%, black 51%);
+        -webkit-mask: radial-gradient(transparent 50%, black 51%);
+    }
+     @keyframes wave {
+      0% { box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.7); }
+      70% { box-shadow: 0 0 0 20px rgba(236, 72, 153, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(236, 72, 153, 0); }
+    }
+    .wave-animation {
+      animation: wave 2s ease-in-out infinite;
+    }
+    @keyframes fade-in-up {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in-up {
+      animation: fade-in-up 0.5s ease-out forwards;
+    }
+    @keyframes generating-pulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 20px 5px rgba(234, 179, 8, 0.7); }
+      50% { transform: scale(1.05); box-shadow: 0 0 40px 15px rgba(234, 179, 8, 0.7); }
+    }
+    .animate-generating-pulse {
+      animation: generating-pulse 2s ease-in-out infinite;
+    }
+  </style>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-gray-900 text-white">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

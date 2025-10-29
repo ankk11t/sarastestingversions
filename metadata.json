@@ -1,0 +1,8 @@
+{
+  "name": "SARAS",
+  "description": "A personal voice assistant with Hindi recognition and understanding. It can handle calls, texts, information saving, data searches, and generate images and videos through voice commands.",
+  "requestFramePermissions": [
+    "microphone",
+    "geolocation"
+  ]
+}
